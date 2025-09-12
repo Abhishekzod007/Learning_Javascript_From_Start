@@ -34,16 +34,17 @@ JsUser.email = "abhsiehk@google.com"
 
 JsUser.greeting = function(){
     console.log("hello bhai kitna kam kiya aaj");
-    
+    return "Kam puch liya ";
 }
 
 JsUser.greeting_two = function(){
     console.log(`hello bhai ${this.name} kitna kam kiya aaj`);
-    
+    return "kam puch lia gya "
 }
 
 console.log(JsUser.greeting());
 console.log(JsUser.greeting_two());
+//JsUser.greeting() this will not return any undefine and prints the greeting function
 
 
 
