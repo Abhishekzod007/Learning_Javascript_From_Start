@@ -30,17 +30,19 @@ const newArr = myArr.join() // binds the array and make them string
 
 // slice, splice
 
-console.log("A ", myArr)
+//console.log("A ", myArr)
 
 const nA = myArr.slice(1,3) // 1 , 2 included index 3 excluded
 
-console.log(nA);
-console.log("B ", myArr);
+//console.log(nA);
+//console.log("B ", myArr);
 
 const mA = myArr.splice(1,3)
-console.log(mA);
-console.log("C ", myArr);
+//console.log(mA);
+//console.log("C ", myArr);
 // Splice manipulates the arrya and then new array becomes the removed part minus from the orignal part of the array and it also includes the index
+
+
 
 
 
