@@ -113,3 +113,21 @@ fetch('https://api.github.com/users/hiteshchoudhary')
 
 // promise.all
 // this is also there in promises
+// Promise.all is a static method on the Promise object in JavaScript. It takes an iterable (like an array) of promises and returns a new promise that:
+
+// Resolves when all the promises in the iterable resolve, with an array of their results.
+
+// Rejects if any promise in the iterable rejects, with the reason of the first promise that rejects.
+
+// ✅ Syntax:
+// const promise1 = Promise.resolve(3);
+// const promise2 = 42;
+// const promise3 = new Promise((resolve, reject) => {
+//   setTimeout(resolve, 100, 'foo');
+// });
+
+// Promise.all([promise1, promise2, promise3]).then(values => {
+//   console.log(values); // [3, 42, 'foo']
+// }).catch(error => {
+//   console.error('One of the promises failed:', error);
+// });
