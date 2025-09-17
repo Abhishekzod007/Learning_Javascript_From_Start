@@ -5,7 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
+<body style=" background-color:#212121">
+    <button id="btn">Button</button>
+    <div class="Container-Image">
+     
+    </div>
 </body>
+<script>
+    // const reqUrl = 'https://api.github.com/users/hiteshchoudhary'
+    // const xhr = new XMLHttpRequest()
+  
+    // xhr.open('GET',reqUrl)
+    document.querySelector('#btn').addEventListener('click', function() {
+      const reqUrl = 'https://api.github.com/users/hiteshchoudhary';
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', reqUrl);
+
+      xhr.onreadystatechange = function() {
+        if(xhr.readyState === 4 && xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+
+          const card = document.createElement('div');
+          card.className = 'card';
+
+          const img = document.createElement('img');
+          img.src = data.avatar_url;
+          img.alt = 'GitHub Avatar';
+
+          const content = document.createElement('div');
+          content.className = 'card-content';
+
+          const title = document.createElement('h4');
+          title.innerText = `Followers: ${data.followers}`;
+          title.style.color = 'white'
+          content.appendChild(title);
+          card.appendChild(img);
+          card.appendChild(content);
+
+          document.querySelector('.Container-Image').appendChild(card);
+        }
+      };
+
+      xhr.send(); // Send the request here after setting up onreadystatechange
+    });
+//     xhr.onreadystatechange = function(){
+//        console.log(xhr.readyState);
+//        if(xhr.readyState === 4){
+//         const  data = JSON.parse(this.responseText)
+//         console.log( data);
+        
+//         console.log(data.followers);
+        
+//     const card = document.createElement('div')
+//     card.className = 'card'
+
+//     const img = document.createElement('img')
+//    // console.log(data.avatar_url);
+    
+//     img.src = data.avatar_url
+//     img.alt = 'card image'
+
+//     const content = document.createElement('div')
+//     content.className = 'card-cotent'
+
+//     const title = document.createElement('h4')
+//     title.innerText =` Followers: ${data.followers}`
+//     title.style.color = 'white'
+// //console.log(data.followers);
+
+//     content.appendChild(title);
+//     card.appendChild(img)
+//     card.appendChild(content)
+
+//     document.querySelector('.Container-Image').appendChild(card)
+       
+//       }
+//     }
+    
+//     xhr.send()
+    
+    
+
+</script>
 </html>
