@@ -16,7 +16,19 @@
     // const xhr = new XMLHttpRequest()
   
     // xhr.open('GET',reqUrl)
+
+    const container = document.querySelector('.Container-Image');
+    let isCardVisible = false; // Track if card is currently shown
+    let card;
+
+
     document.querySelector('#btn').addEventListener('click', function() {
+      
+        if(isCardVisible){
+            container.removeChild(card)
+            isCardVisible=false;
+        } else{
+
       const reqUrl = 'https://api.github.com/users/hiteshchoudhary';
       const xhr = new XMLHttpRequest();
       xhr.open('GET', reqUrl);
@@ -25,7 +37,7 @@
         if(xhr.readyState === 4 && xhr.status === 200) {
           const data = JSON.parse(xhr.responseText);
 
-          const card = document.createElement('div');
+          card = document.createElement('div');
           card.className = 'card';
 
           const img = document.createElement('img');
@@ -42,11 +54,13 @@
           card.appendChild(img);
           card.appendChild(content);
 
-          document.querySelector('.Container-Image').appendChild(card);
+          container.appendChild(card);
+          isCardVisible=true
         }
       };
 
       xhr.send(); // Send the request here after setting up onreadystatechange
+    }
     });
 //     xhr.onreadystatechange = function(){
 //        console.log(xhr.readyState);
