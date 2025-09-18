@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure aur chai</title>
+</head>
+<body style="background-color: #212121;">
+    <button id="orange">Orange</button>
+
+    <button id="green">Green</button>
+</body>
+
+<script>
+    // function init() {
+    //     let name = "Mozilla"; 
+    //     function displayName() {
+    //         console.log(name); 
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+   
+    ///////////////// Lexical Scoping
+    
+    // function outer(){
+    //     let username = "hitesh"
+    //     console.log(secret);
+        
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner",username);
+            
+    //     }
+    //     function innerTwo(){
+    //         console.log("innerTwo", username);
+    //         console.log(secret);
+            
+    //     }
+
+    //     inner()
+    //     innerTwo()
+    // }
+    // outer()
+
+    // console.log("Too outer",username);
+
+    
+
+
+    ////////////////   Closure
+    
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName;
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+
+    
+
+</script>
+
+<script>
+//   document.getElementById("orange").onclick = function(){
+//     document.body.style.backgroundColor = "orange"
+//   }
+
+//   document.getElementById("green").onclick = function(){
+//     document.body.style.backgroundColor = "green"
+//   }
+  
+/// Closure real world example and we understood that why we need it becuase direct function has beencalled by writen the handler function so we do not want to do it becuase whn we click then we want to perform that function so it requires lexical scopingand closure and they are important concepts asked in the interviews 
+
+
+  function clickHandler(color){
+    //document.body.style.backgroundColor = `${color}`
+    return function(){
+        document.body.style.backgroundColor = `${color}`
+    }
+  }
+  document.getElementById('orange').onclick = clickHandler("orange")
+  document.getElementById('green').onclick = clickHandler("green")
+</script>
+
+</html>
